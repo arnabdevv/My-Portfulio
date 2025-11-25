@@ -163,7 +163,7 @@ export default function AboutSection() {
                 style={{ borderColor: "var(--primary-purple)" }}
               />
               <h3 className="text-2xl font-bold text-center mb-4 text-neon">
-                Arnab Kumar
+                Arnab Dinda
               </h3>
               <p className="text-center text-gray-300 mb-6">
                 Full Stack Developer specialized in React, Node.js, and modern
