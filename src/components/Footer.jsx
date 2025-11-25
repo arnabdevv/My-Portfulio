@@ -50,12 +50,19 @@ export default function Footer() {
           <p>Built with ❤️ using React, GSAP, and modern web technologies</p>
         </div>
 
-        <div className="text-sm text-gray-500 border-t border-gray-800 pt-6">
+        <div className="text-sm text-gray-500 border-t border-gray-800 pt-6 space-x-4">
           <Link
             href="/privacy-policy"
             className="hover:text-purple-400 transition-colors"
           >
             Privacy Policy
+          </Link>
+          <span className="text-gray-600">•</span>
+          <Link
+            href="/terms-of-service"
+            className="hover:text-purple-400 transition-colors"
+          >
+            Terms of Service
           </Link>
         </div>
       </div>

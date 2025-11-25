@@ -4,6 +4,7 @@ import { QueryClientProvider } from "@tanstack/react-query";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import Portfolio from "@/pages/Portfolio";
 import PrivacyPolicy from "@/pages/PrivacyPolicy";
+import TermsOfService from "@/pages/TermsOfService";
 import NotFound from "@/pages/not-found";
 
 // Main App component: provides global context and routing
@@ -16,6 +17,7 @@ export default function App() {
         <Switch>
           <Route path="/" component={Portfolio} />
           <Route path="/privacy-policy" component={PrivacyPolicy} />
+          <Route path="/terms-of-service" component={TermsOfService} />
           <Route component={NotFound} />
         </Switch>
       </TooltipProvider>
