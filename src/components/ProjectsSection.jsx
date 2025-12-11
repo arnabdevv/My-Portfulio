@@ -68,10 +68,36 @@ export default function ProjectsSection() {
     };
   };
 
+  const getStatusStyle = (status) => {
+    const statusStyles = {
+      live: {
+        backgroundColor: "var(--primary-magenta)",
+        color: "#fff",
+        label: "Live",
+      },
+      development: {
+        backgroundColor: "var(--primary-blue)",
+        color: "#fff",
+        label: "In Development",
+      },
+      upcoming: {
+        backgroundColor: "var(--primary-cyan)",
+        color: "#000",
+        label: "Upcoming",
+      },
+      "on going": {
+        backgroundColor: "var(--primary-purple)",
+        color: "#fff",
+        label: "In Progress",
+      },
+    };
+    return statusStyles[status] || statusStyles.upcoming;
+  };
+
   return (
     <section id="projects" className="py-20 px-4">
       <div className="max-w-6xl mx-auto">
-        <h2 className="text-4xl md:text-5xl font-bold text-center mb-16 text-neon section-title">
+        <h2 className="text-4xl md:text-5xl font-bold text-center mb-16 text-white section-title">
           Featured Projects
         </h2>
 
@@ -88,13 +114,24 @@ export default function ProjectsSection() {
                 className="w-full h-48 object-cover"
               />
               <div className="p-6">
-                <h3
-                  className="text-xl font-bold mb-3"
-                  style={{ color: "var(--primary-light-green)" }}
-                >
-                  {project.title}
-                </h3>
-                <p className="text-gray-300 mb-4">{project.description}</p>
+                <div className="flex justify-between items-start mb-3">
+                  <h3 className="text-xl font-bold text-white">
+                    {project.title}
+                  </h3>
+                  {project.status && (
+                    <span
+                      className="px-2 py-1 text-xs font-semibold rounded-full whitespace-nowrap ml-2"
+                      style={{
+                        backgroundColor: getStatusStyle(project.status)
+                          .backgroundColor,
+                        color: getStatusStyle(project.status).color,
+                      }}
+                    >
+                      {getStatusStyle(project.status).label}
+                    </span>
+                  )}
+                </div>
+                <p className="text-gray-100 mb-4">{project.description}</p>
                 <div className="flex flex-wrap gap-2 mb-4">
                   {project.technologies.map((tech) => (
                     <span
@@ -109,6 +146,7 @@ export default function ProjectsSection() {
                 <div className="flex space-x-4 opacity-0 group-hover:opacity-100 transition-opacity">
                   <a
                     href={project.liveUrl}
+                    target="_blank"
                     className="flex items-center transition-colors"
                     style={{ color: "var(--primary-green)" }}
                     onMouseEnter={(e) =>

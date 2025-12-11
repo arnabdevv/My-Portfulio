@@ -1,6 +1,7 @@
 import { useEffect, useState, useRef } from "react";
 import profilePic from "../assets/profilePic.png";
 import CV from "../assets/Arnab_CV.pdf";
+import { LiquidEffectAnimation } from "./ui/liquid-effect-animation";
 
 // Hero section with mouse tracking and smooth scroll buttons
 export default function HeroSection() {
@@ -53,13 +54,17 @@ export default function HeroSection() {
     <section
       id="home"
       ref={heroRef}
-      className="min-h-screen flex items-center justify-center relative bg-noise overflow-hidden"
+      className="min-h-screen flex items-center justify-center relative overflow-hidden"
     >
-      <div className="text-center z-10">
+      {/* Liquid Effect Background */}
+      <LiquidEffectAnimation />
+      ..
+      {/* Dark overlay for text contrast */}
+      {/* <div className="absolute inset-0 bg-black/40 z-5"></div> */}
+      <div className="text-center z-10 relative">
         {/* Profile Photo */}
         <div className="mb-8 hero-photo">
           <img
-            // src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=400&h=400"
             src={profilePic}
             alt="Arnab Dinda - Web Developer"
             className="w-32 h-32 md:w-40 md:h-40 rounded-full mx-auto border-4 border-[var(--primary-magenta)] shadow-lg"
@@ -70,33 +75,34 @@ export default function HeroSection() {
           />
         </div>
 
-        <h1 className="text-6xl md:text-8xl font-bold mb-6 hero-name  hero-title">
+        <h1 className="text-6xl md:text-8xl font-bold mb-6 hero-name hero-title text-white">
           ARNAB
         </h1>
         <h2
           className="text-2xl md:text-3xl mb-8 hero-subtitle"
-          style={{ color: "var(--primary-light-green)" }}
+          style={{ color: "#00D9FF" }}
         >
           Full Stack Web Developer
         </h2>
-        <p className="text-lg md:text-xl mb-12 max-w-2xl mx-auto text-gray-300 hero-description">
+        <p className="text-lg md:text-xl mb-12 max-w-2xl mx-auto text-white hero-description">
           Crafting digital experiences with clean code and innovative solutions
         </p>
         <div className="space-x-6 hero-buttons">
           <button
             onClick={handleViewWork}
-            className="glass-effect neon-glow px-8 py-3 rounded-full transition-all"
+            className="glass-effect neon-glow px-8 py-3 rounded-full transition-all font-semibold"
             style={{
-              border: `2px solid var(--primary-green)`,
-              color: "var(--primary-green)",
+              border: `2px solid #FFD700`,
+              color: "#FFD700",
+              backgroundColor: "rgba(255, 215, 0, 0.1)",
             }}
             onMouseEnter={(e) => {
-              e.target.style.backgroundColor = "var(--primary-green)";
+              e.target.style.backgroundColor = "#FFD700";
               e.target.style.color = "black";
             }}
             onMouseLeave={(e) => {
-              e.target.style.backgroundColor = "transparent";
-              e.target.style.color = "var(--primary-green)";
+              e.target.style.backgroundColor = "rgba(255, 215, 0, 0.1)";
+              e.target.style.color = "#FFD700";
             }}
           >
             View My Work
@@ -104,156 +110,25 @@ export default function HeroSection() {
           <a
             href={CV}
             download
-            className="px-8 py-4 rounded-full transition-all"
+            className="px-8 py-4 rounded-full transition-all font-semibold inline-block"
             style={{
-              border: `2px solid var(--primary-purple)`,
-              color: "var(--primary-purple)",
+              border: `2px solid #FFFFFF`,
+              color: "#FFFFFF",
+              backgroundColor: "rgba(255, 255, 255, 0.1)",
             }}
             onMouseEnter={(e) => {
-              e.target.style.backgroundColor = "var(--primary-purple)";
-              e.target.style.color = "white";
+              e.target.style.backgroundColor = "#FFFFFF";
+              e.target.style.color = "black";
             }}
             onMouseLeave={(e) => {
-              e.target.style.backgroundColor = "transparent";
-              e.target.style.color = "var(--primary-purple)";
+              e.target.style.backgroundColor = "rgba(255, 255, 255, 0.1)";
+              e.target.style.color = "#FFFFFF";
             }}
           >
             Download CV
           </a>
         </div>
       </div>
-
-      {/* Mouse-Following Interactive Elements - Optimized */}
-      <div
-        className="absolute pointer-events-none opacity-60"
-        style={{
-          left: mousePosition.x + 100,
-          top: mousePosition.y + 50,
-          width: "80px",
-          height: "80px",
-          border: `2px solid var(--primary-green)`,
-          borderRadius: "50%",
-          transform: "translate(-50%, -50%)",
-          filter: `drop-shadow(0 0 10px var(--primary-green))`,
-          willChange: "transform",
-        }}
-      ></div>
-
-      <div
-        className="absolute pointer-events-none opacity-50"
-        style={{
-          left: mousePosition.x - 120,
-          top: mousePosition.y - 80,
-          width: "60px",
-          height: "60px",
-          border: `2px solid var(--primary-magenta)`,
-          borderRadius: "50%",
-          transform: "translate(-50%, -50%)",
-          filter: `drop-shadow(0 0 8px var(--primary-magenta))`,
-          willChange: "transform",
-        }}
-      ></div>
-
-      <div
-        className="absolute pointer-events-none opacity-40"
-        style={{
-          left: mousePosition.x + 200,
-          top: mousePosition.y - 100,
-          width: "40px",
-          height: "40px",
-          border: `2px solid var(--primary-purple)`,
-          borderRadius: "50%",
-          transform: "translate(-50%, -50%)",
-          filter: `drop-shadow(0 0 6px var(--primary-purple))`,
-          willChange: "transform",
-        }}
-      ></div>
-
-      <div
-        className="absolute pointer-events-none opacity-50"
-        style={{
-          left: mousePosition.x - 80,
-          top: mousePosition.y + 120,
-          width: "50px",
-          height: "50px",
-          border: `2px solid var(--primary-light-green)`,
-          borderRadius: "50%",
-          transform: "translate(-50%, -50%)",
-          filter: `drop-shadow(0 0 7px var(--primary-light-green))`,
-          willChange: "transform",
-        }}
-      ></div>
-
-      {/* Floating Background Elements */}
-      <div
-        className="absolute top-20 left-20 w-20 h-20 rounded-full animate-float opacity-30"
-        style={{ border: `2px solid var(--primary-green)` }}
-      ></div>
-      <div
-        className="absolute bottom-20 right-20 w-16 h-16 rounded-full animate-float opacity-30"
-        style={{
-          border: `2px solid var(--primary-light-green)`,
-          animationDelay: "-2s",
-        }}
-      ></div>
-      <div
-        className="absolute top-1/2 left-10 w-12 h-12 rounded-full animate-float opacity-30"
-        style={{
-          border: `2px solid var(--primary-magenta)`,
-          animationDelay: "-4s",
-        }}
-      ></div>
-
-      {/* Subtle interactive particles - Reduced for smoother performance */}
-      <div
-        className="absolute top-1/3 right-1/4 w-8 h-8 rounded-full animate-float opacity-40"
-        style={{
-          border: `1px solid var(--primary-purple)`,
-          animationDelay: "-1s",
-          transform: `translate(${mousePosition.x * 0.008}px, ${
-            mousePosition.y * 0.008
-          }px)`,
-          willChange: "transform",
-        }}
-      ></div>
-      <div
-        className="absolute bottom-1/3 left-1/4 w-6 h-6 rounded-full animate-float opacity-50"
-        style={{
-          border: `1px solid var(--primary-light-green)`,
-          animationDelay: "-3s",
-          transform: `translate(${mousePosition.x * -0.006}px, ${
-            mousePosition.y * -0.006
-          }px)`,
-          willChange: "transform",
-        }}
-      ></div>
-      <div
-        className="absolute top-2/3 right-1/3 w-10 h-10 rounded-full animate-float opacity-35"
-        style={{
-          border: `1px solid var(--primary-green)`,
-          animationDelay: "-5s",
-          transform: `translate(${mousePosition.x * 0.01}px, ${
-            mousePosition.y * 0.01
-          }px)`,
-          willChange: "transform",
-        }}
-      ></div>
-
-      {/* Cursor Balls that stick to cursor tip */}
-      <div
-        className="cursor-ball-green"
-        style={{
-          left: globalMousePos.x + 12,
-          top: globalMousePos.y + 12,
-        }}
-      ></div>
-      <div
-        className="cursor-ball-white"
-        style={{
-          left: globalMousePos.x + 8,
-          top: globalMousePos.y + 8,
-        }}
-      ></div>
     </section>
   );
 }

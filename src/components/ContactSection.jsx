@@ -39,20 +39,17 @@ export default function ContactSection() {
   return (
     <section id="contact" className="py-20 px-4 bg-noise">
       <div className="max-w-4xl mx-auto">
-        <h2 className="text-4xl md:text-5xl font-bold text-center mb-16 text-neon section-title">
+        <h2 className="text-4xl md:text-5xl font-bold text-center mb-16 text-white section-title">
           Get In Touch
         </h2>
 
         <div className="grid md:grid-cols-2 gap-12">
           {/* Contact Info */}
           <div className="contact-info">
-            <h3
-              className="text-2xl font-bold mb-8"
-              style={{ color: "var(--primary-light-green)" }}
-            >
+            <h3 className="text-2xl font-bold mb-8 text-white">
               Let's Connect
             </h3>
-            <p className="text-lg text-gray-300 mb-8">
+            <p className="text-lg text-gray-100 mb-8">
               I'm always interested in new opportunities and exciting projects.
               Whether you have a question or just want to say hi, feel free to
               reach out!
@@ -62,23 +59,23 @@ export default function ContactSection() {
               <div className="flex items-center">
                 <i
                   className="fas fa-envelope text-xl mr-4"
-                  style={{ color: "var(--primary-green)" }}
+                  style={{ color: "#FFD700" }}
                 ></i>
-                <span>arnabexpress3.12@gmail.com</span>
+                <span className="text-white">arnabexpress3.12@gmail.com</span>
               </div>
               <div className="flex items-center">
                 <i
                   className="fas fa-phone text-xl mr-4"
-                  style={{ color: "var(--primary-magenta)" }}
+                  style={{ color: "#00D9FF" }}
                 ></i>
-                <span>+91 8345974410</span>
+                <span className="text-white">+91 8345974410</span>
               </div>
               <div className="flex items-center">
                 <i
                   className="fas fa-map-marker-alt text-xl mr-4"
-                  style={{ color: "var(--primary-purple)" }}
+                  style={{ color: "#FFD700" }}
                 ></i>
-                <span>Kolkata, India</span>
+                <span className="text-white">Kolkata, India</span>
               </div>
             </div>
 
@@ -123,7 +120,7 @@ export default function ContactSection() {
               <div className="mb-4 form-field">
                 <label
                   htmlFor="name"
-                  className="block text-sm font-medium text-gray-300 mb-1"
+                  className="block text-sm font-medium text-white mb-1"
                 >
                   Name
                 </label>
@@ -132,7 +129,7 @@ export default function ContactSection() {
                   id="name"
                   name="name"
                   required
-                  className="w-full px-4 py-2 bg-gray-800 bg-opacity-50 border border-gray-600 rounded-lg focus:outline-none transition-all"
+                  className="w-full px-4 py-2 bg-gray-800 bg-opacity-50 border border-gray-600 rounded-lg text-white focus:outline-none transition-all"
                   onFocus={(e) => {
                     e.target.style.borderColor = "var(--primary-green)";
                     e.target.style.boxShadow = "0 0 0 2px rgba(6, 208, 1, 0.2)";
@@ -147,7 +144,7 @@ export default function ContactSection() {
               <div className="mb-4 form-field">
                 <label
                   htmlFor="email"
-                  className="block text-sm font-medium text-gray-300 mb-1"
+                  className="block text-sm font-medium text-white mb-1"
                 >
                   Email
                 </label>
@@ -156,7 +153,7 @@ export default function ContactSection() {
                   id="email"
                   name="email"
                   required
-                  className="w-full px-4 py-2 bg-gray-800 bg-opacity-50 border border-gray-600 rounded-lg focus:outline-none transition-all"
+                  className="w-full px-4 py-2 bg-gray-800 bg-opacity-50 border border-gray-600 rounded-lg text-white focus:outline-none transition-all"
                   onFocus={(e) => {
                     e.target.style.borderColor = "var(--primary-green)";
                     e.target.style.boxShadow = "0 0 0 2px rgba(6, 208, 1, 0.2)";
@@ -171,7 +168,7 @@ export default function ContactSection() {
               <div className="mb-4 form-field">
                 <label
                   htmlFor="subject"
-                  className="block text-sm font-medium text-gray-300 mb-1"
+                  className="block text-sm font-medium text-white mb-1"
                 >
                   Subject
                 </label>
@@ -180,7 +177,7 @@ export default function ContactSection() {
                   id="subject"
                   name="subject"
                   required
-                  className="w-full px-4 py-2 bg-gray-800 bg-opacity-50 border border-gray-600 rounded-lg focus:outline-none transition-all"
+                  className="w-full px-4 py-2 bg-gray-800 bg-opacity-50 border border-gray-600 rounded-lg text-white focus:outline-none transition-all"
                   onFocus={(e) => {
                     e.target.style.borderColor = "var(--primary-green)";
                     e.target.style.boxShadow = "0 0 0 2px rgba(6, 208, 1, 0.2)";
@@ -195,7 +192,7 @@ export default function ContactSection() {
               <div className="mb-4 form-field">
                 <label
                   htmlFor="message"
-                  className="block text-sm font-medium text-gray-300 mb-1"
+                  className="block text-sm font-medium text-white mb-1"
                 >
                   Message
                 </label>
@@ -204,7 +201,7 @@ export default function ContactSection() {
                   name="message"
                   rows={3}
                   required
-                  className="w-full px-4 py-2 bg-gray-800 bg-opacity-50 border border-gray-600 rounded-lg focus:outline-none transition-all resize-none"
+                  className="w-full px-4 py-2 bg-gray-800 bg-opacity-50 border border-gray-600 rounded-lg text-white focus:outline-none transition-all resize-none"
                   onFocus={(e) => {
                     e.target.style.borderColor = "var(--primary-green)";
                     e.target.style.boxShadow = "0 0 0 2px rgba(6, 208, 1, 0.2)";

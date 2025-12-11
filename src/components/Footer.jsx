@@ -42,11 +42,11 @@ export default function Footer() {
           </a>
         </div>
 
-        <div className="text-gray-400 mb-4">
+        <div className="text-gray-100 mb-4">
           <p>&copy; 2024 Arnab Dinda. All rights reserved.</p>
         </div>
 
-        <div className="text-sm text-gray-500 mb-6">
+        <div className="text-sm text-gray-200 mb-6">
           <p>Built with ❤️ using React, GSAP, and modern web technologies</p>
         </div>
 

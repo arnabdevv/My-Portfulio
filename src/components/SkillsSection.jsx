@@ -3,6 +3,7 @@ import gsap from "gsap";
 
 export default function SkillsSection() {
   const cardRefs = useRef([]);
+  const skillBarsRef = useRef([]);
 
   useEffect(() => {
     // Add hover animations to skill cards
@@ -10,7 +11,7 @@ export default function SkillsSection() {
       card.addEventListener("mouseenter", () => {
         gsap.to(card, {
           scale: 1.03,
-          boxShadow: "0 8px 30px rgba(0,0,0,0.12)",
+          boxShadow: "0 8px 30px rgba(255, 10, 108, 0.2)",
           duration: 0.3,
           ease: "power2.out",
         });
@@ -25,6 +26,37 @@ export default function SkillsSection() {
         });
       });
     });
+  }, []);
+
+  useEffect(() => {
+    // Animate skill bars on scroll into view
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const bar = entry.target;
+            const percentage = parseInt(bar.getAttribute("data-percentage"));
+            gsap.to(bar, {
+              width: `${percentage}%`,
+              duration: 1.5,
+              ease: "power2.out",
+            });
+            observer.unobserve(bar);
+          }
+        });
+      },
+      { threshold: 0.1 }
+    );
+
+    skillBarsRef.current.forEach((bar) => {
+      if (bar) observer.observe(bar);
+    });
+
+    return () => {
+      skillBarsRef.current.forEach((bar) => {
+        if (bar) observer.unobserve(bar);
+      });
+    };
   }, []);
 
   const skillCategories = [
@@ -54,10 +86,12 @@ export default function SkillsSection() {
     },
   ];
 
+  let skillBarIndex = 0;
+
   return (
-    <section id="skills" className="py-20 px-4 bg-noise">
+    <section id="skills" className="py-20 px-4">
       <div className="max-w-6xl mx-auto">
-        <h2 className="text-4xl md:text-5xl font-bold text-center mb-16 text-neon section-title">
+        <h2 className="text-4xl md:text-5xl font-bold text-center mb-16 text-white section-title">
           Skills
         </h2>
 
@@ -70,34 +104,40 @@ export default function SkillsSection() {
             >
               <h3
                 className="text-xl font-bold mb-6"
-                style={{ color: "var(--primary-light-green)" }}
+                style={{ color: "var(--primary-magenta)" }}
               >
                 {category.title}
               </h3>
               <div className="space-y-4">
-                {category.skills.map((skill, skillIndex) => (
-                  <div key={skill.name} className="skill-item">
-                    <div className="flex justify-between mb-2">
-                      <span>{skill.name}</span>
-                      <span
-                        className="skill-percentage"
-                        data-percentage={skill.percentage}
-                      >
-                        {skill.percentage}%
-                      </span>
+                {category.skills.map((skill, skillIndex) => {
+                  const currentIndex = skillBarIndex++;
+                  return (
+                    <div key={skill.name} className="skill-item">
+                      <div className="flex justify-between mb-2">
+                        <span className="text-gray-200">{skill.name}</span>
+                        <span
+                          className="skill-percentage text-sm font-semibold"
+                          style={{ color: "var(--primary-cyan)" }}
+                        >
+                          {skill.percentage}%
+                        </span>
+                      </div>
+                      <div className="w-full bg-gray-800 rounded-full h-2 overflow-hidden">
+                        <div
+                          ref={(el) =>
+                            (skillBarsRef.current[currentIndex] = el)
+                          }
+                          className="skill-bar h-2 rounded-full"
+                          style={{
+                            background: `linear-gradient(90deg, var(--primary-magenta), var(--primary-blue), var(--primary-cyan))`,
+                            width: "0%",
+                          }}
+                          data-percentage={skill.percentage}
+                        ></div>
+                      </div>
                     </div>
-                    <div className="w-full bg-gray-700 rounded-full h-2">
-                      <div
-                        className="skill-bar h-2 rounded-full"
-                        style={{
-                          background: `linear-gradient(90deg, var(--primary-green), var(--primary-light-green))`,
-                          width: "0%",
-                        }}
-                        data-percentage={skill.percentage}
-                      ></div>
-                    </div>
-                  </div>
-                ))}
+                  );
+                })}
               </div>
             </div>
           ))}

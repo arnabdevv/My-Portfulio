@@ -95,18 +95,18 @@ export default function AboutSection() {
   return (
     <section id="about" className="py-20 px-4">
       <div className="max-w-6xl mx-auto">
-        <h2 className="text-4xl md:text-5xl font-bold text-center mb-16 text-neon section-title">
+        <h2 className="text-4xl md:text-5xl font-bold text-center mb-16 text-white section-title">
           About Me
         </h2>
         <div className="grid md:grid-cols-2 gap-12 items-center">
           {/* About text */}
           <div className="about-text">
-            <p className="text-lg leading-relaxed mb-6 text-gray-300">
+            <p className="text-lg leading-relaxed mb-6 text-white">
               I'm a passionate web developer with 5+ years of experience
               creating modern, responsive websites and applications. I
               specialize in React, Node.js, and cutting-edge web technologies.
             </p>
-            <p className="text-lg leading-relaxed mb-8 text-gray-300">
+            <p className="text-lg leading-relaxed mb-8 text-white">
               When I'm not coding, you'll find me exploring new technologies,
               contributing to open source projects, or enjoying a good cup of
               coffee while planning my next creative project.

@@ -63,7 +63,7 @@ export default function Portfolio() {
   }, [initializeAnimations]);
 
   return (
-    <div className="profile-page min-h-screen text-gray-100">
+    <div className="profile-page min-h-screen text-white">
       {/* Particle background layer */}
       <div
         id="particles-js"

@@ -2,97 +2,100 @@ export const projects = [
   {
     title: "E-commerce Platform",
     description:
-      "Full-stack e-commerce solution with React, Node.js, and MongoDB. Features include user authentication, payment integration, and admin dashboard.",
+      "A full-stack e-commerce solution featuring user authentication, payment integration, and an admin dashboard for managing products and orders.",
     image:
       "https://images.unsplash.com/photo-1563013544-824ae1b704d3?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=600&h=300",
     technologies: ["React", "Node.js", "MongoDB"],
-    liveUrl: "#",
+    liveUrl: "https://e-commerce-arnab.vercel.app/",
     codeUrl: "#",
+    status: "live",
   },
   {
-    title: "Task Management App",
+    title: "Music Player App",
     description:
-      "Collaborative task management tool with real-time updates, drag-and-drop functionality, and team collaboration features.",
-    image:
-      "https://images.unsplash.com/photo-1611224923853-80b023f02d71?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=600&h=300",
+      "A collaborative music player application with real-time updates, drag-and-drop playlist management, and team collaboration features.",
+    image: "src/assets/music_player.jpg",
     technologies: ["React", "Socket.io", "Express"],
-    liveUrl: "#",
+    liveUrl: "https://music-player-gold-three.vercel.app/",
     codeUrl: "#",
+    status: "live",
   },
   {
     title: "Weather Dashboard",
     description:
-      "Beautiful weather dashboard with interactive charts, location search, and 7-day forecast using OpenWeather API.",
+      "An interactive weather dashboard with location search, 7-day forecasts, and visual data charts powered by OpenWeather API.",
     image:
       "https://images.unsplash.com/photo-1504608524841-42fe6f032b4b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=600&h=300",
     technologies: ["Vue.js", "Chart.js", "API"],
-    liveUrl: "#",
+    liveUrl: "https://weather-app-by-arnabdev.vercel.app/",
     codeUrl: "#",
+    status: "live",
   },
   {
-    title: "Analytics Dashboard",
+    title: "3d Model Landing Page",
     description:
-      "Comprehensive analytics dashboard with real-time data visualization, custom reports, and interactive charts.",
-    image:
-      "https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=600&h=300",
+      "A visually stunning landing page showcasing interactive 3D models with smooth animations and engaging user interactions.",
+    image: "src/assets/3d_landing_page.png",
     technologies: ["React", "D3.js", "GraphQL"],
-    liveUrl: "#",
+    liveUrl: "https://3d-model-landing-page-by-arnab.vercel.app/",
     codeUrl: "#",
+    status: "live",
   },
   {
-    title: "React Native App",
+    title: "Student Management System",
     description:
-      "Cross-platform mobile application for fitness tracking with offline capabilities and cloud sync.",
-    image:
-      "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=600&h=300",
+      "A comprehensive student management system for tracking enrollment, grades, and academic progress with an intuitive admin interface.",
+    image: "src/assets/SMP.jpg",
     technologies: ["React Native", "Redux", "Firebase"],
     liveUrl: "#",
     codeUrl: "#",
+    status: "on going",
   },
   {
     title: "Crypto Portfolio Tracker",
     description:
-      "Cryptocurrency portfolio tracking application with real-time prices, portfolio analysis, and market trends.",
+      "A cryptocurrency portfolio tracker with real-time prices, detailed portfolio analysis, and market trend visualization.",
     image:
       "https://images.unsplash.com/photo-1639762681485-074b7f938ba0?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=600&h=300",
     technologies: ["Next.js", "CoinGecko API", "Tailwind"],
     liveUrl: "#",
     codeUrl: "#",
+    status: "upcoming",
   },
 ];
 
 export const technologyColors = {
-  React: { bg: "var(--primary-green)", text: "var(--primary-green)" },
+  React: { bg: "var(--primary-magenta)", text: "var(--primary-magenta)" },
   "Node.js": {
-    bg: "var(--primary-light-green)",
-    text: "var(--primary-light-green)",
+    bg: "var(--primary-blue)",
+    text: "var(--primary-blue)",
   },
-  MongoDB: { bg: "var(--primary-purple)", text: "var(--primary-purple)" },
+  MongoDB: { bg: "var(--primary-cyan)", text: "var(--primary-cyan)" },
   "Socket.io": {
-    bg: "var(--primary-magenta)",
-    text: "var(--primary-magenta)",
-  },
-  Express: { bg: "var(--primary-green)", text: "var(--primary-green)" },
-  "Vue.js": { bg: "var(--primary-green)", text: "var(--primary-green)" },
-  "Chart.js": {
     bg: "var(--primary-purple)",
     text: "var(--primary-purple)",
   },
-  API: { bg: "var(--primary-magenta)", text: "var(--primary-magenta)" },
-  "D3.js": { bg: "var(--primary-purple)", text: "var(--primary-purple)" },
+  Express: { bg: "var(--primary-magenta)", text: "var(--primary-magenta)" },
+  "Vue.js": { bg: "var(--primary-blue)", text: "var(--primary-blue)" },
+  "Chart.js": {
+    bg: "var(--primary-cyan)",
+    text: "var(--primary-cyan)",
+  },
+  API: { bg: "var(--primary-purple)", text: "var(--primary-purple)" },
+  "D3.js": { bg: "var(--primary-cyan)", text: "var(--primary-cyan)" },
   GraphQL: { bg: "var(--primary-magenta)", text: "var(--primary-magenta)" },
   "React Native": {
-    bg: "var(--primary-green)",
-    text: "var(--primary-green)",
+    bg: "var(--primary-blue)",
+    text: "var(--primary-blue)",
   },
-  Redux: { bg: "var(--primary-magenta)", text: "var(--primary-magenta)" },
+  Redux: { bg: "var(--primary-purple)", text: "var(--primary-purple)" },
   Firebase: {
-    bg: "var(--primary-light-green)",
-    text: "var(--primary-light-green)",
+    bg: "var(--primary-magenta)",
+    text: "var(--primary-magenta)",
   },
-  "Next.js": { bg: "var(--primary-green)", text: "var(--primary-green)" },
+  "Next.js": { bg: "var(--primary-blue)", text: "var(--primary-blue)" },
   "CoinGecko API": {
-    bg: "var(--primary-light-green)",
+    bg: "var(--primary-cyan)",
     text: "var(--primary-light-green)",
   },
   Tailwind: { bg: "var(--primary-purple)", text: "var(--primary-purple)" },
