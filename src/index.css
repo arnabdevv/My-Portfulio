@@ -244,6 +244,23 @@
   box-shadow: 0 0 6px rgba(255, 255, 255, 0.8);
 }
 
+/* Liquid Canvas Performance Optimizations */
+#liquid-canvas {
+  will-change: transform;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  image-rendering: optimizeSpeed;
+  image-rendering: -webkit-optimize-contrast;
+}
+
+@media (max-width: 768px) {
+  #liquid-canvas {
+    /* Reduce rendering quality on mobile for better performance */
+    image-rendering: auto;
+  }
+}
+
 /* Responsive Utilities */
 @media (max-width: 640px) {
   .Nav-bar {
@@ -280,6 +297,12 @@
     display: inline-flex;
     align-items: center;
     justify-content: center;
+  }
+  
+  /* Optimize liquid canvas on mobile */
+  #liquid-canvas {
+    transform: translateZ(0) scale(1);
+    will-change: auto;
   }
 }
 
