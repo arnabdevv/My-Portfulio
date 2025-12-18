@@ -89,34 +89,34 @@ export default function SkillsSection() {
   let skillBarIndex = 0;
 
   return (
-    <section id="skills" className="py-20 px-4">
+    <section id="skills" className="py-12 sm:py-16 md:py-20 px-4">
       <div className="max-w-6xl mx-auto">
-        <h2 className="text-4xl md:text-5xl font-bold text-center mb-16 text-white section-title">
+        <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-center mb-8 sm:mb-12 md:mb-16 text-white section-title">
           Skills
         </h2>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
           {skillCategories.map((category, categoryIndex) => (
             <div
               key={category.title}
-              className="glass-effect p-6 rounded-xl skill-card transition-all"
+              className="glass-effect p-5 sm:p-6 rounded-xl skill-card transition-all"
               ref={(el) => (cardRefs.current[categoryIndex] = el)}
             >
               <h3
-                className="text-xl font-bold mb-6"
+                className="text-lg sm:text-xl font-bold mb-4 sm:mb-6"
                 style={{ color: "var(--primary-magenta)" }}
               >
                 {category.title}
               </h3>
-              <div className="space-y-4">
+              <div className="space-y-3 sm:space-y-4">
                 {category.skills.map((skill, skillIndex) => {
                   const currentIndex = skillBarIndex++;
                   return (
                     <div key={skill.name} className="skill-item">
                       <div className="flex justify-between mb-2">
-                        <span className="text-gray-200">{skill.name}</span>
+                        <span className="text-sm sm:text-base text-gray-200">{skill.name}</span>
                         <span
-                          className="skill-percentage text-sm font-semibold"
+                          className="skill-percentage text-xs sm:text-sm font-semibold"
                           style={{ color: "var(--primary-cyan)" }}
                         >
                           {skill.percentage}%

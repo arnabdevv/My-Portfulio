@@ -243,3 +243,99 @@
   will-change: transform;
   box-shadow: 0 0 6px rgba(255, 255, 255, 0.8);
 }
+
+/* Responsive Utilities */
+@media (max-width: 640px) {
+  .Nav-bar {
+    display: none;
+  }
+  
+  .hero-name {
+    font-size: 2.5rem;
+    line-height: 1.1;
+  }
+  
+  .section-title {
+    font-size: 2rem;
+  }
+  
+  .glass-effect {
+    padding: 0.75rem;
+  }
+  
+  /* Reduce particle count on mobile for performance */
+  #particles-js canvas {
+    opacity: 0.7;
+  }
+  
+  /* Ensure proper spacing on mobile */
+  section {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+  
+  /* Better touch targets */
+  button, a {
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+@media (min-width: 641px) and (max-width: 768px) {
+  .hero-name {
+    font-size: 3.5rem;
+  }
+  
+  .section-title {
+    font-size: 2.5rem;
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+  .hero-name {
+    font-size: 4.5rem;
+  }
+}
+
+/* Touch device optimizations */
+@media (hover: none) and (pointer: coarse) {
+  .project-card:hover {
+    transform: none;
+  }
+  
+  .project-card .group-hover\:opacity-100 {
+    opacity: 1;
+  }
+  
+  /* Ensure buttons are large enough for touch */
+  button, a {
+    min-height: 44px;
+    min-width: 44px;
+  }
+}
+
+/* Landscape mobile optimizations */
+@media (max-width: 896px) and (orientation: landscape) {
+  .hero-name {
+    font-size: 2.5rem;
+  }
+  
+  section {
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+  }
+}
+
+/* Tablet specific adjustments */
+@media (min-width: 768px) and (max-width: 1024px) {
+  .Nav-bar {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+  
+  .Nav-bar ul {
+    gap: 0.75rem;
+  }
+}

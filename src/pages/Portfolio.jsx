@@ -13,12 +13,21 @@ import { useGSAP } from "@/hooks/useGSAP";
 export default function Portfolio() {
   const { initializeAnimations } = useGSAP();
 
+  // Scroll to top on page load/reload
+  useEffect(() => {
+    window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+  }, []);
+
   useEffect(() => {
     // Setup animated particle background using particles.js
+    // Reduce particle count on mobile for better performance
+    const isMobile = window.innerWidth < 768;
+    const particleCount = isMobile ? 30 : 50;
+    
     if (window.particlesJS) {
       window.particlesJS("particles-js", {
         particles: {
-          number: { value: 50, density: { enable: true, value_area: 800 } },
+          number: { value: particleCount, density: { enable: true, value_area: 800 } },
           color: { value: ["#06D001", "#4635B1", "#B771E5", "#AEEA94"] },
           shape: { type: "circle" },
           opacity: {
@@ -29,14 +38,14 @@ export default function Portfolio() {
           size: { value: 3, random: true },
           line_linked: {
             enable: true,
-            distance: 150,
+            distance: isMobile ? 120 : 150,
             color: "#06D001",
             opacity: 0.2,
             width: 1,
           },
           move: {
             enable: true,
-            speed: 2,
+            speed: isMobile ? 1.5 : 2,
             direction: "none",
             random: false,
             straight: false,
@@ -47,7 +56,7 @@ export default function Portfolio() {
         interactivity: {
           detect_on: "canvas",
           events: {
-            onhover: { enable: true, mode: "repulse" },
+            onhover: { enable: !isMobile, mode: "repulse" },
             onclick: { enable: true, mode: "push" },
           },
         },

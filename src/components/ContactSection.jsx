@@ -37,87 +37,93 @@ export default function ContactSection() {
   };
 
   return (
-    <section id="contact" className="py-20 px-4 bg-noise">
+    <section id="contact" className="py-12 sm:py-16 md:py-20 px-4 bg-noise">
       <div className="max-w-4xl mx-auto">
-        <h2 className="text-4xl md:text-5xl font-bold text-center mb-16 text-white section-title">
+        <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-center mb-8 sm:mb-12 md:mb-16 text-white section-title">
           Get In Touch
         </h2>
 
-        <div className="grid md:grid-cols-2 gap-12">
+        <div className="grid md:grid-cols-2 gap-8 sm:gap-10 md:gap-12">
           {/* Contact Info */}
-          <div className="contact-info">
-            <h3 className="text-2xl font-bold mb-8 text-white">
+          <div className="contact-info order-2 md:order-1">
+            <h3 className="text-xl sm:text-2xl font-bold mb-6 sm:mb-8 text-white">
               Let's Connect
             </h3>
-            <p className="text-lg text-gray-100 mb-8">
+            <p className="text-base sm:text-lg text-gray-100 mb-6 sm:mb-8">
               I'm always interested in new opportunities and exciting projects.
               Whether you have a question or just want to say hi, feel free to
               reach out!
             </p>
 
-            <div className="space-y-6">
+            <div className="space-y-4 sm:space-y-6">
               <div className="flex items-center">
                 <i
-                  className="fas fa-envelope text-xl mr-4"
+                  className="fas fa-envelope text-lg sm:text-xl mr-3 sm:mr-4"
                   style={{ color: "#FFD700" }}
                 ></i>
-                <span className="text-white">arnabexpress3.12@gmail.com</span>
+                <span className="text-sm sm:text-base text-white break-all">
+                  arnabexpress3.12@gmail.com
+                </span>
               </div>
               <div className="flex items-center">
                 <i
-                  className="fas fa-phone text-xl mr-4"
+                  className="fas fa-phone text-lg sm:text-xl mr-3 sm:mr-4"
                   style={{ color: "#00D9FF" }}
                 ></i>
-                <span className="text-white">+91 8345974410</span>
+                <span className="text-sm sm:text-base text-white">
+                  +91 8345974410
+                </span>
               </div>
               <div className="flex items-center">
                 <i
-                  className="fas fa-map-marker-alt text-xl mr-4"
+                  className="fas fa-map-marker-alt text-lg sm:text-xl mr-3 sm:mr-4"
                   style={{ color: "#FFD700" }}
                 ></i>
-                <span className="text-white">Kolkata, India</span>
+                <span className="text-sm sm:text-base text-white">
+                  Kolkata, India
+                </span>
               </div>
             </div>
 
-            <div className="flex space-x-6 mt-8">
+            {/* <div className="flex space-x-4 sm:space-x-6 mt-6 sm:mt-8">
               <a
                 href="#"
-                className="text-2xl transition-colors social-icon"
+                className="text-xl sm:text-2xl transition-colors social-icon"
                 style={{ color: "var(--primary-purple)" }}
               >
                 <i className="fab fa-linkedin"></i>
               </a>
               <a
                 href="#"
-                className="text-2xl transition-colors social-icon"
+                className="text-xl sm:text-2xl transition-colors social-icon"
                 style={{ color: "var(--primary-green)" }}
               >
                 <i className="fab fa-github"></i>
               </a>
               <a
                 href="#"
-                className="text-2xl transition-colors social-icon"
+                className="text-xl sm:text-2xl transition-colors social-icon"
                 style={{ color: "var(--primary-magenta)" }}
               >
                 <i className="fab fa-twitter"></i>
               </a>
               <a
                 href="#"
-                className="text-2xl transition-colors social-icon"
+                className="text-xl sm:text-2xl transition-colors social-icon"
                 style={{ color: "var(--primary-light-green)" }}
               >
                 <i className="fab fa-instagram"></i>
               </a>
-            </div>
+            </div> */}
           </div>
 
           {/* Contact Form */}
-          <div className="contact-form">
+          <div className="contact-form order-1 md:order-2">
             <form
               onSubmit={handleSubmit}
-              className="glass-effect p-5 rounded-xl"
+              className="glass-effect p-4 sm:p-5 rounded-xl"
             >
-              <div className="mb-4 form-field">
+              <div className="mb-3 sm:mb-4 form-field">
                 <label
                   htmlFor="name"
                   className="block text-sm font-medium text-white mb-1"
@@ -129,7 +135,7 @@ export default function ContactSection() {
                   id="name"
                   name="name"
                   required
-                  className="w-full px-4 py-2 bg-gray-800 bg-opacity-50 border border-gray-600 rounded-lg text-white focus:outline-none transition-all"
+                  className="w-full px-3 sm:px-4 py-2 bg-gray-800 bg-opacity-50 border border-gray-600 rounded-lg text-white text-sm sm:text-base focus:outline-none transition-all"
                   onFocus={(e) => {
                     e.target.style.borderColor = "var(--primary-green)";
                     e.target.style.boxShadow = "0 0 0 2px rgba(6, 208, 1, 0.2)";
@@ -141,7 +147,7 @@ export default function ContactSection() {
                 />
               </div>
 
-              <div className="mb-4 form-field">
+              <div className="mb-3 sm:mb-4 form-field">
                 <label
                   htmlFor="email"
                   className="block text-sm font-medium text-white mb-1"
@@ -153,7 +159,7 @@ export default function ContactSection() {
                   id="email"
                   name="email"
                   required
-                  className="w-full px-4 py-2 bg-gray-800 bg-opacity-50 border border-gray-600 rounded-lg text-white focus:outline-none transition-all"
+                  className="w-full px-3 sm:px-4 py-2 bg-gray-800 bg-opacity-50 border border-gray-600 rounded-lg text-white text-sm sm:text-base focus:outline-none transition-all"
                   onFocus={(e) => {
                     e.target.style.borderColor = "var(--primary-green)";
                     e.target.style.boxShadow = "0 0 0 2px rgba(6, 208, 1, 0.2)";
@@ -165,7 +171,7 @@ export default function ContactSection() {
                 />
               </div>
 
-              <div className="mb-4 form-field">
+              <div className="mb-3 sm:mb-4 form-field">
                 <label
                   htmlFor="subject"
                   className="block text-sm font-medium text-white mb-1"
@@ -177,7 +183,7 @@ export default function ContactSection() {
                   id="subject"
                   name="subject"
                   required
-                  className="w-full px-4 py-2 bg-gray-800 bg-opacity-50 border border-gray-600 rounded-lg text-white focus:outline-none transition-all"
+                  className="w-full px-3 sm:px-4 py-2 bg-gray-800 bg-opacity-50 border border-gray-600 rounded-lg text-white text-sm sm:text-base focus:outline-none transition-all"
                   onFocus={(e) => {
                     e.target.style.borderColor = "var(--primary-green)";
                     e.target.style.boxShadow = "0 0 0 2px rgba(6, 208, 1, 0.2)";
@@ -189,7 +195,7 @@ export default function ContactSection() {
                 />
               </div>
 
-              <div className="mb-4 form-field">
+              <div className="mb-3 sm:mb-4 form-field">
                 <label
                   htmlFor="message"
                   className="block text-sm font-medium text-white mb-1"
@@ -201,7 +207,7 @@ export default function ContactSection() {
                   name="message"
                   rows={3}
                   required
-                  className="w-full px-4 py-2 bg-gray-800 bg-opacity-50 border border-gray-600 rounded-lg text-white focus:outline-none transition-all resize-none"
+                  className="w-full px-3 sm:px-4 py-2 bg-gray-800 bg-opacity-50 border border-gray-600 rounded-lg text-white text-sm sm:text-base focus:outline-none transition-all resize-none"
                   onFocus={(e) => {
                     e.target.style.borderColor = "var(--primary-green)";
                     e.target.style.boxShadow = "0 0 0 2px rgba(6, 208, 1, 0.2)";
@@ -216,7 +222,7 @@ export default function ContactSection() {
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="w-full font-bold py-2 px-6 rounded-lg transition-all transform hover:scale-105 submit-btn disabled:opacity-50 disabled:cursor-not-allowed"
+                className="w-full font-bold py-2.5 sm:py-2 px-6 rounded-lg transition-all transform hover:scale-105 submit-btn disabled:opacity-50 disabled:cursor-not-allowed text-sm sm:text-base"
                 style={{
                   background: `linear-gradient(90deg, var(--primary-green), var(--primary-light-green))`,
                   color: "black",

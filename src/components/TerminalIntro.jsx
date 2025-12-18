@@ -48,22 +48,22 @@ export default function TerminalIntro() {
   return (
     <div
       id="terminal-popup"
-      className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-90"
+      className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-90 px-4"
     >
-      <div className="terminal-window p-6 max-w-md w-full mx-4">
-        <div className="flex items-center mb-4">
-          <div className="w-3 h-3 bg-red-500 rounded-full mr-2"></div>
-          <div className="w-3 h-3 bg-yellow-500 rounded-full mr-2"></div>
-          <div className="w-3 h-3 bg-green-500 rounded-full"></div>
-          <span className="ml-4 text-sm text-gray-400">terminal@portfolio</span>
+      <div className="terminal-window p-4 sm:p-6 max-w-md w-full mx-2 sm:mx-4">
+        <div className="flex items-center mb-3 sm:mb-4">
+          <div className="w-2.5 h-2.5 sm:w-3 sm:h-3 bg-red-500 rounded-full mr-1.5 sm:mr-2"></div>
+          <div className="w-2.5 h-2.5 sm:w-3 sm:h-3 bg-yellow-500 rounded-full mr-1.5 sm:mr-2"></div>
+          <div className="w-2.5 h-2.5 sm:w-3 sm:h-3 bg-green-500 rounded-full"></div>
+          <span className="ml-2 sm:ml-4 text-xs sm:text-sm text-gray-400 truncate">terminal@portfolio</span>
         </div>
         <div
           id="terminal-text"
-          className="text-sm leading-loose min-h-[100px] text-left"
+          className="text-xs sm:text-sm leading-relaxed sm:leading-loose min-h-[80px] sm:min-h-[100px] text-left"
           style={{ color: "var(--primary-light-green)" }}
         >
           {completedCommands.map((command, index) => (
-            <div key={index} className="mb-2">
+            <div key={index} className="mb-1.5 sm:mb-2">
               <span style={{ color: "var(--primary-green)" }}>$</span>{" "}
               <span>{command}</span>
             </div>

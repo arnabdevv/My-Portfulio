@@ -54,20 +54,20 @@ export default function HeroSection() {
     <section
       id="home"
       ref={heroRef}
-      className="min-h-screen flex items-center justify-center relative overflow-hidden"
+      className="min-h-screen flex items-center justify-center relative overflow-hidden px-4 pt-20 pb-12 sm:pt-24 sm:pb-16"
     >
       {/* Liquid Effect Background */}
       <LiquidEffectAnimation />
       ..
       {/* Dark overlay for text contrast */}
       {/* <div className="absolute inset-0 bg-black/40 z-5"></div> */}
-      <div className="text-center z-10 relative">
+      <div className="text-center z-10 relative px-4">
         {/* Profile Photo */}
-        <div className="mb-8 hero-photo">
+        <div className="mb-6 sm:mb-8 hero-photo">
           <img
             src={profilePic}
             alt="Arnab Dinda - Web Developer"
-            className="w-32 h-32 md:w-40 md:h-40 rounded-full mx-auto border-4 border-[var(--primary-magenta)] shadow-lg"
+            className="w-24 h-24 sm:w-32 sm:h-32 md:w-40 md:h-40 rounded-full mx-auto border-4 border-[var(--primary-magenta)] shadow-lg"
             style={{
               boxShadow: `0 0 20px rgba(183, 113, 229, 0.5), 0 0 40px rgba(183, 113, 229, 0.3)`,
               filter: "brightness(1.1) contrast(1.1)",
@@ -75,22 +75,22 @@ export default function HeroSection() {
           />
         </div>
 
-        <h1 className="text-6xl md:text-8xl font-bold mb-6 hero-name hero-title text-white">
+        <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-8xl font-bold mb-4 sm:mb-6 hero-name hero-title text-white">
           ARNAB
         </h1>
         <h2
-          className="text-2xl md:text-3xl mb-8 hero-subtitle"
+          className="text-xl sm:text-2xl md:text-3xl mb-6 sm:mb-8 hero-subtitle px-4"
           style={{ color: "#00D9FF" }}
         >
           Full Stack Web Developer
         </h2>
-        <p className="text-lg md:text-xl mb-12 max-w-2xl mx-auto text-white hero-description">
+        <p className="text-base sm:text-lg md:text-xl mb-8 sm:mb-12 max-w-2xl mx-auto text-white hero-description px-4">
           Crafting digital experiences with clean code and innovative solutions
         </p>
-        <div className="space-x-6 hero-buttons">
+        <div className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6 hero-buttons px-4">
           <button
             onClick={handleViewWork}
-            className="glass-effect neon-glow px-8 py-3 rounded-full transition-all font-semibold"
+            className="glass-effect neon-glow px-6 sm:px-8 py-2.5 sm:py-3 rounded-full transition-all font-semibold text-sm sm:text-base w-full sm:w-auto"
             style={{
               border: `2px solid #FFD700`,
               color: "#FFD700",
@@ -110,7 +110,7 @@ export default function HeroSection() {
           <a
             href={CV}
             download
-            className="px-8 py-4 rounded-full transition-all font-semibold inline-block"
+            className="px-6 sm:px-8 py-2.5 sm:py-4 rounded-full transition-all font-semibold inline-block text-sm sm:text-base w-full sm:w-auto text-center"
             style={{
               border: `2px solid #FFFFFF`,
               color: "#FFFFFF",

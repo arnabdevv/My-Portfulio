@@ -1,17 +1,28 @@
 import { useEffect, useRef } from "react";
-import gsap from "gsap";
 import { projects, technologyColors } from "../data/projects";
+
+// Use global GSAP from CDN
+const gsap = window.gsap || {};
 
 export default function ProjectsSection() {
   const cardRefs = useRef([]);
 
   useEffect(() => {
+    if (!gsap || !gsap.to) return;
+    
     // Add hover animations to project cards
+    const cleanupFunctions = [];
+    
     cardRefs.current.forEach((card) => {
+      if (!card) return;
+      
       const image = card.querySelector("img");
-      const content = card.querySelector(".p-6");
+      // Find content div by checking for padding classes or use a more reliable selector
+      const content = card.querySelector("div[class*='p-']") || card.querySelector("div:last-child");
 
-      card.addEventListener("mouseenter", () => {
+      if (!image || !content) return;
+
+      const handleMouseEnter = () => {
         gsap.to(card, {
           scale: 1.02,
           boxShadow: "0 10px 30px rgba(0,0,0,0.2)",
@@ -20,21 +31,25 @@ export default function ProjectsSection() {
         });
 
         // Animate image zoom
-        gsap.to(image, {
-          scale: 1.1,
-          duration: 0.3,
-          ease: "power2.out",
-        });
+        if (image) {
+          gsap.to(image, {
+            scale: 1.1,
+            duration: 0.3,
+            ease: "power2.out",
+          });
+        }
 
         // Animate content
-        gsap.to(content, {
-          y: -5,
-          duration: 0.3,
-          ease: "power2.out",
-        });
-      });
+        if (content) {
+          gsap.to(content, {
+            y: -5,
+            duration: 0.3,
+            ease: "power2.out",
+          });
+        }
+      };
 
-      card.addEventListener("mouseleave", () => {
+      const handleMouseLeave = () => {
         gsap.to(card, {
           scale: 1,
           boxShadow: "none",
@@ -43,20 +58,36 @@ export default function ProjectsSection() {
         });
 
         // Reset image zoom
-        gsap.to(image, {
-          scale: 1,
-          duration: 0.3,
-          ease: "power2.inOut",
-        });
+        if (image) {
+          gsap.to(image, {
+            scale: 1,
+            duration: 0.3,
+            ease: "power2.inOut",
+          });
+        }
 
         // Reset content
-        gsap.to(content, {
-          y: 0,
-          duration: 0.3,
-          ease: "power2.inOut",
-        });
+        if (content) {
+          gsap.to(content, {
+            y: 0,
+            duration: 0.3,
+            ease: "power2.inOut",
+          });
+        }
+      };
+
+      card.addEventListener("mouseenter", handleMouseEnter);
+      card.addEventListener("mouseleave", handleMouseLeave);
+      
+      cleanupFunctions.push(() => {
+        card.removeEventListener("mouseenter", handleMouseEnter);
+        card.removeEventListener("mouseleave", handleMouseLeave);
       });
     });
+
+    return () => {
+      cleanupFunctions.forEach((cleanup) => cleanup());
+    };
   }, []);
 
   const getTechnologyColor = (tech) => {
@@ -95,13 +126,13 @@ export default function ProjectsSection() {
   };
 
   return (
-    <section id="projects" className="py-20 px-4">
+    <section id="projects" className="py-12 sm:py-16 md:py-20 px-4">
       <div className="max-w-6xl mx-auto">
-        <h2 className="text-4xl md:text-5xl font-bold text-center mb-16 text-white section-title">
+        <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-center mb-8 sm:mb-12 md:mb-16 text-white section-title">
           Featured Projects
         </h2>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
           {projects.map((project, index) => (
             <div
               key={project.title}
@@ -111,16 +142,16 @@ export default function ProjectsSection() {
               <img
                 src={project.image}
                 alt={project.title}
-                className="w-full h-48 object-cover"
+                className="w-full h-40 sm:h-48 object-cover"
               />
-              <div className="p-6">
-                <div className="flex justify-between items-start mb-3">
-                  <h3 className="text-xl font-bold text-white">
+              <div className="p-4 sm:p-6">
+                <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start mb-3 gap-2">
+                  <h3 className="text-lg sm:text-xl font-bold text-white">
                     {project.title}
                   </h3>
                   {project.status && (
                     <span
-                      className="px-2 py-1 text-xs font-semibold rounded-full whitespace-nowrap ml-2"
+                      className="px-2 py-1 text-xs font-semibold rounded-full whitespace-nowrap self-start sm:self-auto"
                       style={{
                         backgroundColor: getStatusStyle(project.status)
                           .backgroundColor,
@@ -131,8 +162,8 @@ export default function ProjectsSection() {
                     </span>
                   )}
                 </div>
-                <p className="text-gray-100 mb-4">{project.description}</p>
-                <div className="flex flex-wrap gap-2 mb-4">
+                <p className="text-sm sm:text-base text-gray-100 mb-3 sm:mb-4">{project.description}</p>
+                <div className="flex flex-wrap gap-2 mb-3 sm:mb-4">
                   {project.technologies.map((tech) => (
                     <span
                       key={tech}
@@ -143,11 +174,11 @@ export default function ProjectsSection() {
                     </span>
                   ))}
                 </div>
-                <div className="flex space-x-4 opacity-0 group-hover:opacity-100 transition-opacity">
+                <div className="flex flex-col sm:flex-row gap-3 sm:space-x-4 sm:opacity-0 sm:group-hover:opacity-100 transition-opacity">
                   <a
                     href={project.liveUrl}
                     target="_blank"
-                    className="flex items-center transition-colors"
+                    className="flex items-center transition-colors text-sm sm:text-base"
                     style={{ color: "var(--primary-green)" }}
                     onMouseEnter={(e) =>
                       (e.target.style.color = "var(--primary-light-green)")
@@ -160,7 +191,7 @@ export default function ProjectsSection() {
                   </a>
                   <a
                     href={project.codeUrl}
-                    className="flex items-center transition-colors"
+                    className="flex items-center transition-colors text-sm sm:text-base"
                     style={{ color: "var(--primary-purple)" }}
                     onMouseEnter={(e) =>
                       (e.target.style.color = "var(--primary-magenta)")
