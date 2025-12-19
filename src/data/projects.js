@@ -1,3 +1,5 @@
+import musicPlayerImg from "../assets/music_player.jpg";
+
 export const projects = [
   {
     title: "E-commerce Platform",
@@ -14,7 +16,7 @@ export const projects = [
     title: "Music Player App",
     description:
       "A collaborative music player application with real-time updates, drag-and-drop playlist management, and team collaboration features.",
-    image: "/assets/music_player.jpg",
+    image: musicPlayerImg,
     technologies: ["React", "Socket.io", "Express"],
     liveUrl: "https://music-player-gold-three.vercel.app/",
     codeUrl: "#",
@@ -35,7 +37,7 @@ export const projects = [
     title: "3d Model Landing Page",
     description:
       "A visually stunning landing page showcasing interactive 3D models with smooth animations and engaging user interactions.",
-    image: "/assets/3d_landing_page.png",
+    image: "src/assets/3d_landing_page.png",
     technologies: ["React", "D3.js", "GraphQL"],
     liveUrl: "https://3d-model-landing-page-by-arnab.vercel.app/",
     codeUrl: "#",
@@ -45,7 +47,7 @@ export const projects = [
     title: "Student Management System",
     description:
       "A comprehensive student management system for tracking enrollment, grades, and academic progress with an intuitive admin interface.",
-    image: "/assets/SMP.jpg",
+    image: "src/assets/SMP.jpg",
     technologies: ["React Native", "Redux", "Firebase"],
     liveUrl: "#",
     codeUrl: "#",
