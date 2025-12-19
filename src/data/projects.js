@@ -1,4 +1,6 @@
 import musicPlayerImg from "../assets/music_player.jpg";
+import ModelImg from "../assets/3d_landing_page.png";
+import studentManagementImg from "../assets/SMP.jpg";
 
 export const projects = [
   {
@@ -37,7 +39,7 @@ export const projects = [
     title: "3d Model Landing Page",
     description:
       "A visually stunning landing page showcasing interactive 3D models with smooth animations and engaging user interactions.",
-    image: "src/assets/3d_landing_page.png",
+    image: ModelImg,
     technologies: ["React", "D3.js", "GraphQL"],
     liveUrl: "https://3d-model-landing-page-by-arnab.vercel.app/",
     codeUrl: "#",
@@ -47,7 +49,7 @@ export const projects = [
     title: "Student Management System",
     description:
       "A comprehensive student management system for tracking enrollment, grades, and academic progress with an intuitive admin interface.",
-    image: "src/assets/SMP.jpg",
+    image: studentManagementImg,
     technologies: ["React Native", "Redux", "Firebase"],
     liveUrl: "#",
     codeUrl: "#",
