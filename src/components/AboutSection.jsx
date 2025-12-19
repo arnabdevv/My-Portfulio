@@ -1,9 +1,10 @@
 import { useEffect, useRef } from "react";
-import profilePic from "../assets/profilePic.png";
+import profilePic from "../assets/profilePic_2.jpg";
 
 // Use global GSAP from CDN
 const gsap = window.gsap || {};
-const ScrollTrigger = window.gsap?.plugins?.scrollTrigger || window.ScrollTrigger;
+const ScrollTrigger =
+  window.gsap?.plugins?.scrollTrigger || window.ScrollTrigger;
 
 // About section with 3D tilt card and summary
 export default function AboutSection() {
@@ -37,7 +38,7 @@ export default function AboutSection() {
     // Animate social icons on scroll
     const socialIcons = aboutRef.current.querySelectorAll(".social-icon");
     let ctx = null;
-    
+
     if (socialIcons.length > 0 && ScrollTrigger && gsap.context) {
       ctx = gsap.context(() => {
         gsap.from(socialIcons, {
@@ -57,7 +58,7 @@ export default function AboutSection() {
 
     // Hover animation for social icons
     const hoverHandlers = [];
-    
+
     socialIcons.forEach((icon) => {
       const handleMouseEnter = () => {
         if (gsap && gsap.to) {
@@ -81,7 +82,7 @@ export default function AboutSection() {
 
       icon.addEventListener("mouseenter", handleMouseEnter);
       icon.addEventListener("mouseleave", handleMouseLeave);
-      
+
       hoverHandlers.push({ icon, handleMouseEnter, handleMouseLeave });
     });
 
@@ -135,9 +136,10 @@ export default function AboutSection() {
           {/* About text */}
           <div className="about-text order-2 md:order-1">
             <p className="text-base sm:text-lg leading-relaxed mb-4 sm:mb-6 text-white">
-              I'm a passionate web developer with 5+ years of experience
-              creating modern, responsive websites and applications. I
-              specialize in React, Node.js, and cutting-edge web technologies.
+              I’m a motivated web developer focused on building modern,
+              responsive websites and applications. I work primarily with React
+              and Node.js and enjoy learning and applying modern web
+              technologies to solve real-world problems.
             </p>
             <p className="text-base sm:text-lg leading-relaxed mb-6 sm:mb-8 text-white">
               When I'm not coding, you'll find me exploring new technologies,
@@ -189,24 +191,24 @@ export default function AboutSection() {
 
           {/* 3D Tilt Card */}
           <div className="flex justify-center order-1 md:order-2">
-            <div className="about-card glass-effect p-6 sm:p-8 rounded-xl max-w-sm w-full transform-gpu">
+            <div className="about-card glass-effect p-8 sm:p-12 rounded-xl max-w-md w-full transform-gpu">
               <img
                 src={profilePic}
-                className="w-24 h-24 sm:w-32 sm:h-32 rounded-full mx-auto mb-4 sm:mb-6 border-2"
+                className="w-28 h-28 sm:w-40 sm:h-40 rounded-full mx-auto mb-6 sm:mb-8 border-2 object-cover object-[60%_center]"
                 style={{ borderColor: "var(--primary-purple)" }}
               />
-              <h3 className="text-xl sm:text-2xl font-bold text-center mb-3 sm:mb-4 text-neon">
+              <h3 className="text-2xl sm:text-3xl font-bold text-center mb-4 sm:mb-5 text-neon">
                 Arnab Dinda
               </h3>
-              <p className="text-sm sm:text-base text-center text-gray-300 mb-4 sm:mb-6">
+              <p className="text-base sm:text-lg text-center text-gray-300 mb-6 sm:mb-8">
                 Full Stack Developer specialized in React, Node.js, and modern
                 web technologies
               </p>
-              <div className="flex justify-center space-x-3 sm:space-x-4">
-                <i className="fab fa-react text-xl sm:text-2xl text-green-400"></i>
-                <i className="fab fa-node-js text-xl sm:text-2xl text-emerald-300"></i>
-                <i className="fab fa-js-square text-xl sm:text-2xl text-pink-400"></i>
-                <i className="fab fa-python text-xl sm:text-2xl text-purple-400"></i>
+              <div className="flex justify-center space-x-4 sm:space-x-5">
+                <i className="fab fa-react text-2xl sm:text-3xl text-green-400"></i>
+                <i className="fab fa-node-js text-2xl sm:text-3xl text-emerald-300"></i>
+                <i className="fab fa-js-square text-2xl sm:text-3xl text-pink-400"></i>
+                <i className="fab fa-python text-2xl sm:text-3xl text-purple-400"></i>
               </div>
             </div>
           </div>

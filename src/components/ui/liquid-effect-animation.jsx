@@ -19,26 +19,12 @@ export function LiquidEffectAnimation() {
       );
     };
 
-    // Check WebGL support
-    const checkWebGL = () => {
-      try {
-        const canvas = document.createElement("canvas");
-        const gl =
-          canvas.getContext("webgl") ||
-          canvas.getContext("experimental-webgl") ||
-          canvas.getContext("webgl2");
-        return !!gl;
-      } catch (e) {
-        return false;
-      }
-    };
-
     const isMobile = checkMobile();
-    const hasWebGL = checkWebGL();
 
-    if (!hasWebGL) {
-      setIsSupported(false);
+    // Skip liquid effect on mobile devices
+    if (isMobile) {
       setIsLoading(false);
+      setIsSupported(false);
       return;
     }
 
@@ -73,6 +59,16 @@ export function LiquidEffectAnimation() {
             if (!canvas) {
               throw new Error('Canvas not found');
             }
+            
+            // Properly set canvas dimensions for mobile
+            const setCanvasDimensions = () => {
+              const dpr = window.devicePixelRatio || 1;
+              const rect = canvas.getBoundingClientRect();
+              canvas.width = rect.width * dpr;
+              canvas.height = rect.height * dpr;
+            };
+            
+            setCanvasDimensions();
             
             // Initialize the liquid background
             const app = typeof LiquidBackground === 'function' 
@@ -123,13 +119,46 @@ export function LiquidEffectAnimation() {
                 const maxPixelRatio = 1.5;
                 if (app.renderer.setPixelRatio) {
                   app.renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, maxPixelRatio));
+                } else if (app.renderer.domElement) {
+                  // Manual scaling if setPixelRatio not available
+                  const scale = Math.min(window.devicePixelRatio || 1, maxPixelRatio);
+                  app.renderer.domElement.style.transform = \`scale(\${1/scale})\`;
+                  app.renderer.domElement.style.transformOrigin = '0 0';
                 }
               }
             } catch (optError) {
               console.warn('Some optimizations failed, continuing with defaults:', optError);
             }
             
+            // Handle window resize for mobile
+            const handleResize = () => {
+              if (!app) return;
+              setCanvasDimensions();
+              if (app.renderer) {
+                const width = isMobile ? window.innerWidth * window.devicePixelRatio : window.innerWidth;
+                const height = isMobile ? window.innerHeight * window.devicePixelRatio : window.innerHeight;
+                if (app.renderer.setSize) {
+                  app.renderer.setSize(width, height);
+                }
+              }
+            };
+            
+            window.addEventListener('resize', handleResize, false);
+            
+            // Allow scrolling to work properly on mobile - only prevent default on canvas itself
+            if (isMobile && canvas) {
+              canvas.addEventListener('touchmove', function(e) {
+                e.preventDefault();
+              }, { passive: false });
+              
+              // Prevent pinch zoom
+              canvas.addEventListener('gesturestart', function(e) {
+                e.preventDefault();
+              }, false);
+            }
+            
             window.__liquidApp = app;
+            window.__liquidResizeHandler = handleResize;
             console.log('Liquid effect loaded successfully', { isMobile });
             
           } catch (error) {
@@ -175,7 +204,7 @@ export function LiquidEffectAnimation() {
       };
 
       document.body.appendChild(script);
-      
+
       // Set loading to false after a delay
       setTimeout(() => {
         setIsLoading(false);
@@ -184,6 +213,14 @@ export function LiquidEffectAnimation() {
 
     return () => {
       clearTimeout(initTimeout);
+      if (window.__liquidResizeHandler) {
+        window.removeEventListener(
+          "resize",
+          window.__liquidResizeHandler,
+          false
+        );
+        window.__liquidResizeHandler = null;
+      }
       if (window.__liquidApp && window.__liquidApp.dispose) {
         window.__liquidApp.dispose();
         window.__liquidApp = null;
@@ -207,14 +244,27 @@ export function LiquidEffectAnimation() {
 
   return (
     <div
-      className="fixed inset-0 m-0 w-full h-full touch-none overflow-hidden"
-      style={{ fontFamily: '"Montserrat", serif', zIndex: -1 }}
+      className="fixed inset-0 m-0 w-full h-full overflow-hidden pointer-events-none"
+      style={{
+        fontFamily: '"Montserrat", serif',
+        zIndex: -1,
+        WebkitTouchCallout: "none",
+        WebkitUserSelect: "none",
+        top: 0,
+        left: 0,
+      }}
     >
       <canvas
         ref={canvasRef}
         id="liquid-canvas"
-        className="fixed inset-0 w-full h-full"
-        style={{ zIndex: -1 }}
+        className="fixed inset-0 w-full h-full pointer-events-none"
+        style={{
+          zIndex: -1,
+          display: "block",
+          WebkitTouchCallout: "none",
+          top: 0,
+          left: 0,
+        }}
       />
       <div
         className="fixed inset-0 w-full h-full pointer-events-none"

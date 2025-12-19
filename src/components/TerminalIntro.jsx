@@ -55,11 +55,13 @@ export default function TerminalIntro() {
           <div className="w-2.5 h-2.5 sm:w-3 sm:h-3 bg-red-500 rounded-full mr-1.5 sm:mr-2"></div>
           <div className="w-2.5 h-2.5 sm:w-3 sm:h-3 bg-yellow-500 rounded-full mr-1.5 sm:mr-2"></div>
           <div className="w-2.5 h-2.5 sm:w-3 sm:h-3 bg-green-500 rounded-full"></div>
-          <span className="ml-2 sm:ml-4 text-xs sm:text-sm text-gray-400 truncate">terminal@portfolio</span>
+          <span className="ml-2 sm:ml-4 text-xs sm:text-sm text-gray-400 truncate">
+            terminal@portfolio
+          </span>
         </div>
         <div
           id="terminal-text"
-          className="text-xs sm:text-sm leading-relaxed sm:leading-loose min-h-[80px] sm:min-h-[100px] text-left"
+          className="text-sm sm:text-base leading-relaxed sm:leading-loose min-h-[100px] sm:min-h-[120px] text-left"
           style={{ color: "var(--primary-light-green)" }}
         >
           {completedCommands.map((command, index) => (

@@ -15,7 +15,7 @@ export default function Portfolio() {
 
   // Scroll to top on page load/reload
   useEffect(() => {
-    window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+    window.scrollTo({ top: 0, left: 0, behavior: "instant" });
   }, []);
 
   useEffect(() => {
@@ -23,11 +23,14 @@ export default function Portfolio() {
     // Reduce particle count on mobile for better performance
     const isMobile = window.innerWidth < 768;
     const particleCount = isMobile ? 30 : 50;
-    
+
     if (window.particlesJS) {
       window.particlesJS("particles-js", {
         particles: {
-          number: { value: particleCount, density: { enable: true, value_area: 800 } },
+          number: {
+            value: particleCount,
+            density: { enable: true, value_area: 800 },
+          },
           color: { value: ["#06D001", "#4635B1", "#B771E5", "#AEEA94"] },
           shape: { type: "circle" },
           opacity: {
@@ -72,7 +75,18 @@ export default function Portfolio() {
   }, [initializeAnimations]);
 
   return (
-    <div className="profile-page min-h-screen text-white">
+    <div
+      className="profile-page min-h-screen text-white"
+      style={{
+        background: `radial-gradient(ellipse at center, rgba(6, 208, 1, ${
+          typeof window !== "undefined" && window.innerWidth < 768 ? "0.3" : "0"
+        }) 0%, rgba(70, 53, 177, ${
+          typeof window !== "undefined" && window.innerWidth < 768 ? "0.4" : "0"
+        }) 50%, rgba(183, 113, 229, ${
+          typeof window !== "undefined" && window.innerWidth < 768 ? "0.3" : "0"
+        }) 100%)`,
+      }}
+    >
       {/* Particle background layer */}
       <div
         id="particles-js"
