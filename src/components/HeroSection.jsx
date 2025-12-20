@@ -68,7 +68,6 @@ export default function HeroSection() {
     >
       {/* Liquid Effect Background */}
       <LiquidEffectAnimation />
-      ..
       {/* Dark overlay for text contrast */}
       {/* <div className="absolute inset-0 bg-black/40 z-5"></div> */}
       <div className="text-center z-10 relative px-4">
