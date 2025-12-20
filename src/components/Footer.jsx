@@ -6,40 +6,44 @@ export default function Footer() {
       <div className="max-w-6xl mx-auto text-center">
         <div className="flex justify-center flex-wrap gap-4 sm:gap-6 md:gap-8 mb-6 sm:mb-8 footer-social">
           <a
-            href="#"
+            href="https://www.linkedin.com/in/arnabdinda"
+            target="_blank"
             className="text-xl sm:text-2xl transition-colors transform hover:scale-125 social-icon"
             style={{ color: "var(--primary-purple)" }}
           >
             <i className="fab fa-linkedin"></i>
           </a>
           <a
-            href="#"
+            href="https://github.com/arnabdevv"
+            target="_blank"
             className="text-xl sm:text-2xl transition-colors transform hover:scale-125 social-icon"
             style={{ color: "var(--primary-green)" }}
           >
             <i className="fab fa-github"></i>
           </a>
           <a
-            href="#"
+            href="https://x.com/ArnabDeveloper"
+            target="_blank"
             className="text-xl sm:text-2xl transition-colors transform hover:scale-125 social-icon"
             style={{ color: "var(--primary-magenta)" }}
           >
             <i className="fab fa-twitter"></i>
           </a>
           <a
-            href="#"
+            href="https://www.instagram.com/arnab.s_gallery"
+            target="_blank"
             className="text-xl sm:text-2xl transition-colors transform hover:scale-125 social-icon"
             style={{ color: "var(--primary-light-green)" }}
           >
             <i className="fab fa-instagram"></i>
           </a>
-          <a
+          {/* <a
             href="#"
             className="text-xl sm:text-2xl transition-colors transform hover:scale-125 social-icon"
             style={{ color: "var(--primary-purple)" }}
           >
             <i className="fab fa-dribbble"></i>
-          </a>
+          </a> */}
         </div>
 
         <div className="text-sm sm:text-base text-gray-100 mb-3 sm:mb-4">

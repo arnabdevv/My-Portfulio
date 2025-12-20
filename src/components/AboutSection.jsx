@@ -99,32 +99,32 @@ export default function AboutSection() {
     };
   }, []);
 
-  const socialLinks = [
-    {
-      href: "https://www.linkedin.com/in/arnabdinda",
-      label: "LinkedIn",
-      icon: "fab fa-linkedin",
-      color: "text-purple-400",
-    },
-    {
-      href: "https://github.com/arnabdevv",
-      label: "GitHub",
-      icon: "fab fa-github",
-      color: "text-green-400",
-    },
-    {
-      href: "https://x.com/ArnabDeveloper",
-      label: "X",
-      icon: "fab fa-twitter",
-      color: "text-pink-400",
-    },
-    {
-      href: "https://www.instagram.com/arnab.s_gallery?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==",
-      label: "Instagram",
-      icon: "fab fa-instagram",
-      color: "text-emerald-300",
-    },
-  ];
+  // const socialLinks = [
+  //   {
+  //     href: "https://www.linkedin.com/in/arnabdinda",
+  //     label: "LinkedIn",
+  //     icon: "fab fa-linkedin",
+  //     color: "text-purple-400",
+  //   },
+  //   {
+  //     href: "https://github.com/arnabdevv",
+  //     label: "GitHub",
+  //     icon: "fab fa-github",
+  //     color: "text-green-400",
+  //   },
+  //   {
+  //     href: "https://x.com/ArnabDeveloper",
+  //     label: "X",
+  //     icon: "fab fa-twitter",
+  //     color: "text-pink-400",
+  //   },
+  //   {
+  //     href: "https://www.instagram.com/arnab.s_gallery?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==",
+  //     label: "Instagram",
+  //     icon: "fab fa-instagram",
+  //     color: "text-emerald-300",
+  //   },
+  // ];
 
   return (
     <section id="about" ref={aboutRef} className="py-12 sm:py-16 md:py-20 px-4">
