@@ -61,31 +61,31 @@ export default function Navigation() {
       {/* Desktop Navigation */}
       <nav className="Nav-bar hidden md:flex fixed top-4 left-1/2 transform -translate-x-1/2 glass-effect rounded-full px-6 md:px-8 py-3 z-30">
         <ul className="flex space-x-4 md:space-x-6 lg:space-x-8">
-          {navItems.map((item) => (
-            <li key={item.id}>
-              <button
-                onClick={() => scrollToSection(item.id)}
+        {navItems.map((item) => (
+          <li key={item.id}>
+            <button
+              onClick={() => scrollToSection(item.id)}
                 className="text-xs md:text-sm transition-colors nav-link"
-                style={{
-                  color:
-                    activeSection === item.id ? "var(--primary-green)" : "#fff",
-                }}
-                onMouseEnter={(e) => {
-                  if (activeSection !== item.id)
-                    e.target.style.color = "var(--primary-light-green)";
-                }}
-                onMouseLeave={(e) => {
-                  if (activeSection !== item.id) {
-                    e.target.style.color = "#fff";
-                  }
-                }}
-              >
-                {item.label}
-              </button>
-            </li>
-          ))}
-        </ul>
-      </nav>
+              style={{
+                color:
+                  activeSection === item.id ? "var(--primary-green)" : "#fff",
+              }}
+              onMouseEnter={(e) => {
+                if (activeSection !== item.id)
+                  e.target.style.color = "var(--primary-light-green)";
+              }}
+              onMouseLeave={(e) => {
+                if (activeSection !== item.id) {
+                  e.target.style.color = "#fff";
+                }
+              }}
+            >
+              {item.label}
+            </button>
+          </li>
+        ))}
+      </ul>
+    </nav>
 
       {/* Mobile Navigation */}
       <nav className="md:hidden fixed top-4 right-4 z-30" ref={menuRef}>

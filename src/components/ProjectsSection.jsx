@@ -32,20 +32,20 @@ export default function ProjectsSection() {
 
         // Animate image zoom
         if (image) {
-          gsap.to(image, {
-            scale: 1.1,
-            duration: 0.3,
-            ease: "power2.out",
-          });
+        gsap.to(image, {
+          scale: 1.1,
+          duration: 0.3,
+          ease: "power2.out",
+        });
         }
 
         // Animate content
         if (content) {
-          gsap.to(content, {
-            y: -5,
-            duration: 0.3,
-            ease: "power2.out",
-          });
+        gsap.to(content, {
+          y: -5,
+          duration: 0.3,
+          ease: "power2.out",
+        });
         }
       };
 
@@ -59,20 +59,20 @@ export default function ProjectsSection() {
 
         // Reset image zoom
         if (image) {
-          gsap.to(image, {
-            scale: 1,
-            duration: 0.3,
-            ease: "power2.inOut",
-          });
+        gsap.to(image, {
+          scale: 1,
+          duration: 0.3,
+          ease: "power2.inOut",
+        });
         }
 
         // Reset content
         if (content) {
-          gsap.to(content, {
-            y: 0,
-            duration: 0.3,
-            ease: "power2.inOut",
-          });
+        gsap.to(content, {
+          y: 0,
+          duration: 0.3,
+          ease: "power2.inOut",
+        });
         }
       };
 
