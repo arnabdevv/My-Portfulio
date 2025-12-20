@@ -2,6 +2,7 @@ import { Switch, Route } from "wouter";
 import { queryClient } from "./lib/queryClient";
 import { QueryClientProvider } from "@tanstack/react-query";
 import { TooltipProvider } from "@/components/ui/tooltip";
+import { Toaster } from "@/components/ui/toaster";
 import Portfolio from "@/pages/Portfolio";
 import PrivacyPolicy from "@/pages/PrivacyPolicy";
 import TermsOfService from "@/pages/TermsOfService";
@@ -12,8 +13,9 @@ export default function App() {
   return (
     <QueryClientProvider client={queryClient}>
       <TooltipProvider>
-        {/* App-wide notifications can be enabled by uncommenting Toaster */}
-        {/* <Toaster /> */}
+        {/* 2. Uncomment this line by removing the curly braces and slashes */}
+        <Toaster />
+
         <Switch>
           <Route path="/" component={Portfolio} />
           <Route path="/privacy-policy" component={PrivacyPolicy} />

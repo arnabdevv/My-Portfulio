@@ -6,10 +6,45 @@ export default function ContactSection() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const { toast } = useToast();
 
+  const sendToDiscord = async (data) => {
+    // Replace this string with the URL you copied from Discord
+    const DISCORD_WEBHOOK_URL =
+      "https://discord.com/api/webhooks/1451826016116019232/8IrcdMqwJDWVhWJkRh2Alk6TARu__3khOWjRtD82RDFgb5ZjyV-UlF7tVyznfV8b_DsA";
+
+    const payload = {
+      username: "Portfolio Contact Bot",
+      avatar_url: "https://i.imgur.com/4M34hi2.png", // Optional bot icon
+      embeds: [
+        {
+          title: "New Message from Portfolio",
+          color: 3447003, // A nice blue color
+          fields: [
+            { name: "Name", value: data.name || "N/A", inline: true },
+            { name: "Email", value: data.email || "N/A", inline: true },
+            { name: "Subject", value: data.subject || "N/A" },
+            { name: "Message", value: data.message || "No message content." },
+          ],
+          timestamp: new Date().toISOString(),
+        },
+      ],
+    };
+
+    const response = await fetch(DISCORD_WEBHOOK_URL, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(payload),
+    });
+
+    if (!response.ok) {
+      throw new Error("Failed to send message to Discord");
+    }
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     setIsSubmitting(true);
 
+    // Get data from the form fields
     const formData = new FormData(e.currentTarget);
     const data = {
       name: formData.get("name"),
@@ -19,16 +54,30 @@ export default function ContactSection() {
     };
 
     try {
-      await sendEmail(data);
-      toast({
-        title: "Message sent successfully!",
-        description: "Thank you for your message. I'll get back to you soon.",
+      // Replace 'YOUR_FORM_ID' with the actual ID from Formspree
+      const response = await fetch("https://formspree.io/f/mjgbygoz", {
+        method: "POST",
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
       });
-      e.target.reset();
+      console.log(response);
+
+      if (response.ok) {
+        toast({
+          title: "Success!",
+          description: "Your message has been sent to my Discord.",
+        });
+        e.target.reset(); // Clears the form
+      } else {
+        throw new Error("Submission failed");
+      }
     } catch (error) {
       toast({
-        title: "Failed to send message",
-        description: "Please try again or contact me directly via email.",
+        title: "Something went wrong",
+        description: "Please try again or contact me another way.",
         variant: "destructive",
       });
     } finally {
