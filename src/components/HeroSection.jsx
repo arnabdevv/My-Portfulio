@@ -1,7 +1,8 @@
 import { useEffect, useState, useRef } from "react";
 import profilePic from "../assets/profilePic_1.png";
-import CV from "../assets/Arnab_CV.pdf";
 import { LiquidEffectAnimation } from "./ui/liquid-effect-animation";
+
+const cvUrl = import.meta.env.VITE_CV_URL;
 
 // Hero section with mouse tracking and smooth scroll buttons
 export default function HeroSection() {
@@ -116,7 +117,8 @@ export default function HeroSection() {
             View My Work
           </button>
           <a
-            href={CV}
+            href={cvUrl}
+            target="_blank"
             download
             className="px-6 sm:px-8 py-2.5 sm:py-4 rounded-full transition-all font-semibold inline-block text-sm sm:text-base w-full sm:w-auto text-center"
             style={{
