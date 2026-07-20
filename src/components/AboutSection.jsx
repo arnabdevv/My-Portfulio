@@ -136,15 +136,10 @@ export default function AboutSection() {
           {/* About text */}
           <div className="about-text order-2 md:order-1">
             <p className="text-base sm:text-lg leading-relaxed mb-4 sm:mb-6 text-white">
-              I’m a motivated web developer focused on building modern,
-              responsive websites and applications. I work primarily with React
-              and Node.js and enjoy learning and applying modern web
-              technologies to solve real-world problems.
+              I'm a Full Stack Developer specializing in React, Node.js, Express.js, and modern web technologies. I build secure, scalable, and production-ready web applications with a strong focus on backend architecture, REST APIs, authentication, and database design.
             </p>
             <p className="text-base sm:text-lg leading-relaxed mb-6 sm:mb-8 text-white">
-              When I'm not coding, you'll find me exploring new technologies,
-              contributing to open source projects, or enjoying a good cup of
-              coffee while planning my next creative project.
+              Through internships and real-world projects, I've developed enterprise applications for renewable energy management, professional networking, and real-time communication. I'm passionate about solving complex problems, continuously learning, and creating software that makes a meaningful impact.
             </p>
 
             {/* ✅ Updated Social Icons */}
